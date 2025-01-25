@@ -78,7 +78,7 @@ export default function Contact() {
 
 const Favourite: FunctionComponent<{contact: Pick<ContactRecord, "favourite">;}> = ({contact}) => {
     const fetcher = useFetcher();
-    const favourite = contact.favourite;
+    const favourite = fetcher.formData ? fetcher.formData.get("favourite") === "true" : contact.favourite;
 
     return(
         <fetcher.Form method="post">
